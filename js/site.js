@@ -1,37 +1,57 @@
-// get the values from the two <input> tags (controller function)
-function getValues( ) {
+let numberSet = [];
+
+function getValues() {  
     // get values from the <input> elements
     let startValue = document.getElementById("startValue").value;
     let endValue = document.getElementById("endValue").value;
-
-    alert("The Start Value:" + startValue);
 
     // Parse the <input> entries from strings to integer values.
     startValue = parseInt(startValue);
     endValue = parseInt(endValue);
 
-    // call the function generateNumbers
-    let numbers = generateNumbers(startValue, endValue);
+    if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
 
-    // call the function displayNumbers
-}
+        numberSet = generateNumbers(startValue, endValue);
+        displayNumbers(numberSet);
 
-// generate the numbers from the startValue to the endValue (logic function)
-function generateNumbers(sValue, eValue) {
-    let numbers = [];
-
-    //we want to generate all numbers from startValue to endValue
-    //loop that takes the sValue and increments it up step-by-step to the eValue.
-    for(let index = sValue; index <= eValue; index++){
-
-        //this will execute in a loop until index is greater than eValue.
-        numbers.push(index);
+    } else {
+        alert("You must enter integers");
     }
 
-    return numbers;
+    // call the function displayNumbers
+      
+}
+// generate the numbers from the startValue to the endValue (logic function)
+function generateNumbers(sValue, eValue) {
+
+    //generate all integers from startValue to endValue
+    for(let index = sValue; index <= eValue; index++){
+
+        numberSet.push(index);
+    }
+
+    return numberSet;
 }
 
 // display the numbers and mark the even numbers bold (display function)
-function displayNumbers( ) {
+function displayNumbers(numberSet) {
 
+    let templateRows = "";
+
+    for (index = 0; index < numberSet.length; index++) {
+
+        let number = numberSet[index];
+
+        let className = "";
+
+        if(number % 2 == 0){
+            className = "even"
+        } else {
+            className = "odd"
+        }
+
+        templateRows += `<tr><td class="${className}">${number}</td><tr>`;
+
+        document.getElementById("results").innerHTML = templateRows;
+    }  
 }

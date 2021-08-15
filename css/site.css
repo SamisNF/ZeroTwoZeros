@@ -61,6 +61,14 @@ footer .social>a:hover{
     color: var(--secondary-color);
 }
 
+.even {
+    font-weight: bold;
+}
+
+.odd {
+    font-weight: 100;
+}
+
 code[class*="language-"],
     pre[class*="language-"] {
         white-space: pre-wrap;
