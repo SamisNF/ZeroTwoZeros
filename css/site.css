@@ -1,6 +1,7 @@
 :root {
-    --primary-color: #1d5888;
+    --primary-color: #148BCB;
     --secondary-color: #ff993b;
+    --grey-color: #414141;
     --dark-color: #292929;
     --white-color: #e7e7e7;
 }
@@ -22,7 +23,7 @@ h1, h2, h3, h4, h5, h6{
     font-family: 'Bebas Neue';
 }
 
-p, li {
+p {
     font-family: 'Open Sans';
 }
 
@@ -58,7 +59,7 @@ footer .social>a:hover{
 }
 
 .checklist >li i{
-    color: var(--secondary-color);
+    color: var(--grey-color);
 }
 
 .even {
